@@ -1,9 +1,85 @@
+html {
+    font-family: Verdana;
+}
+
 body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 body * {
     box-sizing: border-box;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left top;
+}
+
+/* Style galerii */
+.gallery {
+    display: flex;
+    flex-flow: row wrap;
+    margin: -4px;
+    width: calc(100% + 8px);
+}
+
+.przyciski {
+    display: flex;
+    justify-content: center;
+}
+
+.gallery__column {
+    width: 25%;
+    padding: 4px;
+}
+
+.gallery__imageWrapper {
+    aspect-ratio: 16 / 9;
+}
+/* Koniec styli galerii */
+
+/* Style modala */
+.modal {
+    display: flex;
+        justify-content: center;
+        align-items: center;
+    position: fixed;
+        top: 0;
+        left: 0;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color: rgba(0,0,0,0);
+    transition: background-color .2s ease;
+    will-change: background-color;
+}
+
+.modal__content {
+    width: 100%;
+    height: 100%;
+    transform: scale(0, 0);
+    transition: transform .2s ease;
+    will-change: transform;
+}
+
+.modal.active {
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal.active .modal__content {
+    transform: scale(1, 1);
+}
+/* Koniec styli modala */
+
+@media screen and (max-width: 730px) {
+    .gallery__column {
+        width: 50%;
+    }
 }
