@@ -85,12 +85,19 @@ img {
 }
 
 .modal__image {
-    margin: auto;
+    height: 100%;
+    flex-grow: 1;
+}
+
+.modal__image img {
+    object-fit: contain;
+    object-position: center;
 }
 
 .modal__x {
     width: 36px;
     height: 36px;
+    flex-shrink: 0;
 }
 
 .modal__x:hover {
@@ -122,8 +129,52 @@ img {
     transform-origin: center;
     transform: rotate(-45deg);
 }
+
+.modal__error {
+    height: 48px;
+    width: 400px;
+    position: fixed;
+        top: 50%;
+        left: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+    padding: 16px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.modal__error p {
+    margin: 0;
+    text-align: center;
+}
 /* Koniec styli modala */
 
+/* Style spinnera */
+.modal__spinner {
+    height: 48px;
+    width: 48px;
+    margin: auto;
+    position: fixed;
+        top: 50%;
+        left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: inherit;
+    border: solid 3px white;
+    border-right: 0;
+    border-bottom: 0;
+    border-radius: 100%;
+    animation: spin 1s infinite 0s; 
+}
+
+@keyframes spin {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+/* Koniec styli spinnera */
 @media screen and (max-width: 730px) {
     .gallery__column {
         width: 50%;
